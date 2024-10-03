@@ -1,0 +1,17 @@
+@if (retirement(); as retirement) {
+<p-card
+  header="({{index()}}) {{retirement.name}} {{index() === 1 ? '👑' : ''}}"
+  [subheader]="(retirement.date | date: 'MM. YYYY') ?? undefined"
+  [style]="{ width: '25rem', overflow: 'hidden' }"
+>
+  <p>
+    Geleistete Tage: {{doneDays()}}<br/>
+    Ausständige Leistungen: {{todoDays()}}
+  </p>
+  <ng-template pTemplate="header">
+    <div style="width: 100%">
+      <p-chart type="doughnut" [data]="data" [options]="options" />
+    </div>
+  </ng-template>
+</p-card>
+}
